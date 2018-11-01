@@ -42,10 +42,17 @@ const uint8_t row_pads[MATRIX_ROWS]={5,4,3,15,14};
 static matrix_row_t matrix[MATRIX_ROWS];
 static matrix_row_t matrix_debouncing[MATRIX_ROWS];
 
+
+//for COL2ROW
 static matrix_row_t read_cols(void);
 static void init_cols(void);
 static void unselect_rows(void);
-static void select_row(uint8_t row);
+static void select_row(uint8_t num);
+//for ROW2COL
+static matrix_row_t read_rows(void);
+static void init_rows(void);
+static void unselect_cols(void);
+static void select_col(uint8_t num);
 
 
 inline
@@ -77,8 +84,13 @@ uint8_t matrix_cols(void)
 void matrix_init(void)
 {
     // initialize row and col
+#if (DIODE_DIRECTION==COL2ROW)
     unselect_rows();
     init_cols();
+#elif(DIODE_DIRECTION==ROW2COL
+		unselect_cols();
+		init_rows();
+#endif
 
     // initialize matrix state: all keys off
     for (uint8_t i=0; i < MATRIX_ROWS; i++) {
@@ -95,6 +107,7 @@ void matrix_init(void)
 
 uint8_t matrix_scan(void)
 {
+#if(DIODE_DIRECTION==COL2ROW)
     for (uint8_t i = 0; i < MATRIX_ROWS; i++) {
         select_row(i);
         wait_us(30);  // without this wait read unstable value.
@@ -146,11 +159,22 @@ void matrix_print(void)
 
 /* Column pin configuration
  */
+
+/*
+ * COL2ROW functions
+ *
+ *
+ *
+ */
+
 static void  init_cols(void)
 {
 #ifdef BOARD_MAPLEMINI_STM32_F103
     // don't need pullup/down, since it's pulled down in hardware
-    palSetPadMode(GPIOB, 8, PAL_MODE_INPUT);
+		for(uint8_t i=0;i<MATRIX_COLS;i+=1)
+		{
+			palSetPadMode(col_ports[i], col_pads[i], PAL_MODE_INPUT);
+		}
 #else
     palSetPadMode(GPIOB, 8, PAL_MODE_INPUT_PULLDOWN);
 #endif
@@ -159,7 +183,13 @@ static void  init_cols(void)
 /* Returns status of switches(1:on, 0:off) */
 static matrix_row_t read_cols(void)
 {
-    return ((palReadPad(GPIOB, 8)==PAL_LOW) ? 0 : (1<<0));
+		uint8_t result=0;
+		for(uint8_t i=0;i<MATRIX_COLS;i+=1)
+		{
+			result|=(palReadPad(col_ports[i],col_pads[i]))<<i;
+		}
+		return result;
+    //return ((palReadPad(GPIOB, 8)==PAL_LOW) ? 0 : (1<<0));
     // | ((palReadPad(...)==PAL_HIGH) ? 0 : (1<<1))
 }
 
@@ -169,12 +199,11 @@ static void unselect_rows(void)
 {
 	for(uint8_t i=0;i<MATRIX_ROWS;i+=1)
 		palSetPadMode(row_ports[i],row_pads[i],PAL_MODE_INPUT);
-    // palSetPadMode(GPIOA, GPIOA_PIN10, PAL_MODE_INPUT); // hi-Z
 }
 
-static void select_row(uint8_t row)
+static void select_row(uint8_t num)
 {
-	palSetPad(row_ports[row],row_pads[row]);
+	palSetPad(row_ports[num],row_pads[num]);
 //    (void)row;
     // Output low to select
     // switch (row) {
@@ -184,3 +213,44 @@ static void select_row(uint8_t row)
     //         break;
     // }
 }
+
+/* ROW2COL functions
+ *
+ *
+ *
+ *
+ */
+static void init_rows(void)
+{
+	for(uint8_t i=0;o<MATRIX_ROWS;i+=1)
+	{
+#ifdef BOARD_MAPLEMINI_STM32_F103
+		palSetPadMode(row_ports[i],row_pads[i],PAL_MODE_INPUT);
+#else
+		palSetPadMode(row_ports[i],row_pads[i],PAL_MODE_INPUT_PULLDOWN);
+#endif
+	}
+
+}
+static matrix_row_t read_rows(void)
+{
+	uint8_t result=0;
+	for(uint8_t i=0;i<MATRIX_ROWS;i+=1)
+	{
+		result|=(palReadPad(row_ports[i],row_pads[i]))<<i;
+	}
+	return result;
+}
+static void unselect_cols(void)
+{
+	for(uint8_t i=0;i<MATRIX_COLS;i+=1)
+	{
+		palSetPadMode(col_ports[i],col_pads[i],PAL_MODE_INPUT);
+	}
+}
+static void select_col(uint8_t num)
+{
+	palSetPad(col_ports[num],col_pads[num]);
+
+}
+
