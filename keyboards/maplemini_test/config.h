@@ -32,9 +32,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DESCRIPTION jis keyboard used arm
 
 /* key matrix size */
+
 #define MATRIX_ROWS 5
 #define MATRIX_COLS 15
-#define DIODE_DIRECTION COL2ROW
+#define MATRIX_ROW_PINS {MP17,MP18,MP19,MP20,MP21}
+#define MATRIX_COL_PINS {MP0,MP1,MP2,MP3,MP4,MP5,MP6,MP7,MP8,MP9,MP10,MP11,MP12,MP13,MP14}
+//#define DIODE_DIRECTION COL2ROW
+#define DIODE_DIRECTION ROW2COL
 
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST

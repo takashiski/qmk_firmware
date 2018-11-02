@@ -25,7 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Set 0 if debouncing isn't needed */
 
 #ifndef DEBOUNCING_DELAY
-#   define DEBOUNCING_DELAY 0
+#   define DEBOUNCING_DELAY 5
 //#define DEBOUNCING_DELAY 0
 #endif
 
@@ -83,8 +83,8 @@ static matrix_row_t matrix_debouncing[MATRIX_ROWS];
     static void select_col(uint8_t col);
 #endif
 //#define setPinInputSTM32(pin) setPinInput(pin)
-#define setPinInputSTM32(pin) setPinInputHigh(pin)
-//#define setPinInputSTM32(pin) setPinInputLow(pin)
+//#define setPinInputSTM32(pin) setPinInputHigh(pin)
+#define setPinInputSTM32(pin) setPinInputLow(pin)
 
 __attribute__ ((weak))
 void matrix_init_quantum(void) {
@@ -273,11 +273,7 @@ uint8_t matrix_key_count(void)
 static void init_cols(void)
 {
     for(uint8_t x = 0; x < MATRIX_COLS; x++) {
-//#ifdef BOARD_MAPLEMINI_STM32_F103
-        setPinInput(col_pins[x]);
-//#else
-//        setPinInputHigh(col_pins[x]);
-//#endif
+        setPinInputSTM32(col_pins[x]);
     }
 }
 

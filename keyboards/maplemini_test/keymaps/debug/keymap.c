@@ -22,7 +22,7 @@
 
 #define DEFAULT_LAYER 0
 #define DEBUG_LAYER 1
-// KC_DEL,  KC_PGUP, KC_PGDN, KC_LSHIFT, KC_RSHIFT,
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS]={
 
 	{

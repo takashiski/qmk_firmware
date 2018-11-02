@@ -35,12 +35,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define MATRIX_ROWS 5
 #define MATRIX_COLS 5
+/*
 #define MATRIX_COL_PINS {MP17,MP18,MP19,MP20,MP21}
 #define MATRIX_ROW_PINS {MP0,MP1,MP2,MP3,MP4}
 #define DIODE_DIRECTION COL2ROW
-//#define MATRIX_ROW_PINS {MP17,MP18,MP19,MP20,MP21}
-//#define MATRIX_COL_PINS {MP0,MP1,MP2,MP3,MP4}
-//#define DIODE_DIRECTION ROW2COL
+*/
+#define MATRIX_ROW_PINS {MP17,MP18,MP19,MP20,MP21}
+#define MATRIX_COL_PINS {MP0,MP1,MP2,MP3,MP4}
+#define DIODE_DIRECTION ROW2COL
 
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST
