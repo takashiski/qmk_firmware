@@ -388,7 +388,7 @@ static void select_col(uint8_t col)
 {
     setPinOutput(col_pins[col]);
 
-    writePinLow(col_pins[col]);
+//    writePinLow(col_pins[col]);
 }
 
 static void unselect_col(uint8_t col)
