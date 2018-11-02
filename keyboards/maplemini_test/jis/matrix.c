@@ -357,12 +357,12 @@ static bool read_rows_on_col(matrix_row_t current_matrix[], uint8_t current_col)
         if (readPin(row_pins[row_index]) == 1)
         {
             // Pin LO, set col bit
-            current_matrix[row_index] |= (ROW_SHIFTER << current_col);
+            current_matrix[row_index] &= (ROW_SHIFTER << current_col);
         }
         else
         {
             // Pin HI, clear col bit
-            current_matrix[row_index] &= ~(ROW_SHIFTER << current_col);
+            current_matrix[row_index] |= ~(ROW_SHIFTER << current_col);
         }
 
         // Determine if the matrix changed state
