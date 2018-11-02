@@ -1,3 +1,4 @@
+this repo is based chibios_test and quantum/matrix.c
 
 ```make maplemini_test/jis:debug```
 
@@ -7,4 +8,4 @@ or
 
 and
 
-./dfu-util-0.9-win64/dfu-util.exe -d leaf:0003 -a 1 -D ./maplemini_test_jis_debug.bin -R
+```./dfu-util-0.9-win64/dfu-util.exe -d leaf:0003 -a 1 -D ./maplemini_test_jis_debug.bin -R```
