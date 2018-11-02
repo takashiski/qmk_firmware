@@ -83,8 +83,8 @@ static matrix_row_t matrix_debouncing[MATRIX_ROWS];
     static void select_col(uint8_t col);
 #endif
 //#define setPinInputSTM32(pin) setPinInput(pin)
-//#define setPinInputSTM32(pin) setPinInputHigh(pin)
-#define setPinInputSTM32(pin) setPinInputLow(pin)
+#define setPinInputSTM32(pin) setPinInputHigh(pin)
+//#define setPinInputSTM32(pin) setPinInputLow(pin)
 
 __attribute__ ((weak))
 void matrix_init_quantum(void) {
@@ -353,8 +353,8 @@ static bool read_rows_on_col(matrix_row_t current_matrix[], uint8_t current_col)
         matrix_row_t last_row_value = current_matrix[row_index];
 
         // Check row pin state
-        //if (readPin(row_pins[row_index]) == 0)
-        if (readPin(row_pins[row_index]) == 1)
+        if (readPin(row_pins[row_index]) == 0)
+        //if (readPin(row_pins[row_index]) == 1)
         {
             // Pin LO, set col bit
             current_matrix[row_index] &= (ROW_SHIFTER << current_col);
