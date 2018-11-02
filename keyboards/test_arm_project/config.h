@@ -31,7 +31,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DESCRIPTION     A custom keyboard
 
 /* key matrix size */
-#define MATRIX_ROWS 2
+//#define MATRIX_ROWS 5
+//#define MATRIX_COLS 5
+#define MATRIX_ROWS 3
 #define MATRIX_COLS 3
 
 /*
@@ -44,12 +46,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
 */
-#define MATRIX_ROW_PINS { D0, D5 }
-#define MATRIX_COL_PINS { F1, F0, B0 }
+//#define MATRIX_ROW_PINS { MP0,MP1,MP2,MP3,MP4 }
+//#define MATRIX_COL_PINS { MP17,MP18,MP19,MP20,MP21}
+#define MATRIX_COL_PINS { MP0,MP1,MP2}//,MP3,MP4 }
+#define MATRIX_ROW_PINS { MP17,MP18,MP19}//,MP20,MP21}
 #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL, or CUSTOM_MATRIX */
-#define DIODE_DIRECTION COL2ROW
+//#define DIODE_DIRECTION COL2ROW
+#define DIODE_DIRECTION ROW2COL
+
 
 // #define BACKLIGHT_PIN B7
 // #define BACKLIGHT_BREATHING
