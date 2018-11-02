@@ -82,6 +82,9 @@ static matrix_row_t matrix_debouncing[MATRIX_ROWS];
     static void unselect_col(uint8_t col);
     static void select_col(uint8_t col);
 #endif
+//#define setPinInputSTM32(pin) setPinInput(pin)
+//#define setPinInputSTM32(pin) setPinInputHigh(pin)
+#define setPinInputSTM32(pin) setPinInputLow(pin)
 
 __attribute__ ((weak))
 void matrix_init_quantum(void) {
@@ -315,17 +318,13 @@ static void select_row(uint8_t row)
 
 static void unselect_row(uint8_t row)
 {
-#ifdef BOARD_MAPLEMINI_STM32_F103
-    setPinInput(row_pins[row]);
-#else
-    setPinInputHigh(row_pins[row]);
-#endif
+    setPinInputSTM32(row_pins[row]);
 }
 
 static void unselect_rows(void)
 {
     for(uint8_t x = 0; x < MATRIX_ROWS; x++) {
-        setPinInput(row_pins[x]);
+        setPinInputSTM32(row_pins[x]);
     }
 }
 
@@ -334,11 +333,7 @@ static void unselect_rows(void)
 static void init_rows(void)
 {
     for(uint8_t x = 0; x < MATRIX_ROWS; x++) {
-//#ifdef BOARD_MAPLEMINI_STM32_F103
-//        setPinInput(row_pins[x]);
-//#else
-        setPinInputHigh(row_pins[x]);
-//#endif
+        setPinInputSTM32(row_pins[x]);
     }
 }
 
@@ -391,22 +386,15 @@ static void select_col(uint8_t col)
 
 static void unselect_col(uint8_t col)
 {
-//#ifdef BOARD_MAPLEMINI_STM32_F103
-//    setPinInput(col_pins[col]);
-//#else
-    setPinInputHigh(col_pins[col]);
-//#endif
+    setPinInputSTM32(col_pins[col]);
 }
 
 static void unselect_cols(void)
 {
     for(uint8_t x = 0; x < MATRIX_COLS; x++) {
-//#ifdef BOARD_MAPLEMINI_STM32_F103
-//        setPinInput(col_pins[x]);
-//#else
-        setPinInputHigh(col_pins[x]);
-//#endif
+        setPinInputSTM32(col_pins[x]);
     }
 }
+
 
 #endif
