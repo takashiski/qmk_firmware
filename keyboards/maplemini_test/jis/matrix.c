@@ -25,8 +25,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Set 0 if debouncing isn't needed */
 
 #ifndef DEBOUNCING_DELAY
-//#   define DEBOUNCING_DELAY 5
-#define DEBOUNCING_DELAY 0
+#   define DEBOUNCING_DELAY 0
+//#define DEBOUNCING_DELAY 0
 #endif
 
 #if (DEBOUNCING_DELAY > 0)
@@ -57,8 +57,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "maplemini_pinout.h"
 
-#define MATRIX_ROW_PINS {MP17,MP18,MP19,MP20,MP21}
-#define MATRIX_COL_PINS {MP0,MP1,MP2,MP3,MP4,MP5,MP6,MP7,MP8,MP9,MP10,MP11,MP12,MP13,MP14}
 
 #if (DIODE_DIRECTION == ROW2COL) || (DIODE_DIRECTION == COL2ROW)
 static const pin_t row_pins[MATRIX_ROWS] = MATRIX_ROW_PINS;
@@ -336,11 +334,11 @@ static void unselect_rows(void)
 static void init_rows(void)
 {
     for(uint8_t x = 0; x < MATRIX_ROWS; x++) {
-#ifdef BOARD_MAPLEMINI_STM32_F103
-        setPinInput(row_pins[x]);
-#else
+//#ifdef BOARD_MAPLEMINI_STM32_F103
+//        setPinInput(row_pins[x]);
+//#else
         setPinInputHigh(row_pins[x]);
-#endif
+//#endif
     }
 }
 
@@ -393,21 +391,21 @@ static void select_col(uint8_t col)
 
 static void unselect_col(uint8_t col)
 {
-#ifdef BOARD_MAPLEMINI_STM32_F103
-    setPinInput(col_pins[col]);
-#else
+//#ifdef BOARD_MAPLEMINI_STM32_F103
+//    setPinInput(col_pins[col]);
+//#else
     setPinInputHigh(col_pins[col]);
-#endif
+//#endif
 }
 
 static void unselect_cols(void)
 {
     for(uint8_t x = 0; x < MATRIX_COLS; x++) {
-#ifdef BOARD_MAPLEMINI_STM32_F103
-        setPinInput(col_pins[x]);
-#else
+//#ifdef BOARD_MAPLEMINI_STM32_F103
+//        setPinInput(col_pins[x]);
+//#else
         setPinInputHigh(col_pins[x]);
-#endif
+//#endif
     }
 }
 
