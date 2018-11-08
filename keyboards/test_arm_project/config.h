@@ -31,10 +31,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DESCRIPTION     A custom keyboard
 
 /* key matrix size */
-//#define MATRIX_ROWS 5
-//#define MATRIX_COLS 5
-#define MATRIX_ROWS 3
-#define MATRIX_COLS 3
+#define MATRIX_ROWS 5
+#define MATRIX_COLS 10
 
 /*
  * Keyboard Matrix Assignments
@@ -46,10 +44,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
 */
-//#define MATRIX_ROW_PINS { MP0,MP1,MP2,MP3,MP4 }
-//#define MATRIX_COL_PINS { MP17,MP18,MP19,MP20,MP21}
-#define MATRIX_COL_PINS { MP0,MP1,MP2}//,MP3,MP4 }
-#define MATRIX_ROW_PINS { MP17,MP18,MP19}//,MP20,MP21}
+//#define MATRIX_COL_PINS {MPA6,MPA7,MPA8,MPA9,MPA10}//OUTPUT PIN
+//#define MATRIX_COL_PINS {MP15,MP16,MP17,MP18,MP19}//OUTPUT PIN
+//#define MATRIX_COL_PINS {MP15,MP16,MP17,MP18,MP19}//OUTPUT PIN
+#define MATRIX_COL_PINS {MP27,MP28,MP29,MP30,MP31,MP20,MP21,MP22,MP25,MP26}//INPUT PIN
+#define MATRIX_ROW_PINS {MP4,MP5,MP6,MP7,MP8}//INPUT PIN
+//#define MATRIX_ROW_PINS {MPB7,MPB15,MPB14,MPB13,MPB12}//INPUT PIN
 #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL, or CUSTOM_MATRIX */

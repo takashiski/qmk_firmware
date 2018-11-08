@@ -83,7 +83,7 @@ HD44780_ENABLE = no 		# Enable support for HD44780 based LCDs (+400)
 # from keyboards/chibios_test/stm32_f103_onkey/rules.mk
 # 
 # project specific files
-#SRC =	matrix.c 
+//SRC =	matrix.c 
 #	    led.c
 
 # GENERIC STM32F103C8T6 board - stm32duino bootloader
