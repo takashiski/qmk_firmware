@@ -94,6 +94,7 @@ void matrix_scan_quantum(void) {
 
 __attribute__ ((weak))
 void matrix_init_kb(void) {
+	AFIO->MAPR|=AFIO_MAPR_SWJ_CFG_DISABLE;
     matrix_init_user();
 }
 
