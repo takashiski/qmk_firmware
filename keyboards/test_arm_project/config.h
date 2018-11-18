@@ -68,6 +68,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define BACKLIGHT_BREATHING
 // #define BACKLIGHT_LEVELS 3
 
+
+#define I2C_SCL MP15 //I2C1
+#define I2C_SDA MP15 //I2C1
+#define UART_RX MP25 //UART1
+#define UART_TX MP26 //UART1
+
+#define RGB_DI_PIN MP27
 // #define RGB_DI_PIN E2
 // #ifdef RGB_DI_PIN
 // #define RGBLIGHT_ANIMATIONS
