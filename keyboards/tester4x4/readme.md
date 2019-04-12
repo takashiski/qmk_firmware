@@ -1,6 +1,6 @@
 # tester4x4
 
-![tester4x4](https://twitter.com/skyhigh_works/status/1116204870095085568)
+https://twitter.com/skyhigh_works/status/1116204870095085568
 
 A short description of the keyboard/project
 
