@@ -28,13 +28,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VENDOR_ID       0xBC42
 #define PRODUCT_ID      0x0042
 #define DEVICE_VER      0x0100
-#define MANUFACTURER    Biacco42
-#define PRODUCT         Ergo42
+#define MANUFACTURER    takashiski
+#define PRODUCT         Otaku Split
 #define DESCRIPTION     The Answer to the Ultimate Question of Life, the Universe, and at least Keyboards
 
 /* key matrix size */
-#define MATRIX_ROWS 8
-#define MATRIX_COLS 7
+#define MATRIX_ROWS 10
+#define MATRIX_COLS 8
 
 #define DIODE_DIRECTION COL2ROW
 
