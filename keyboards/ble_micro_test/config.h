@@ -30,7 +30,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* key matrix size */
 #define MATRIX_ROWS 1
-#define MATRIX_COLS 18
+#define MATRIX_COLS 19
 
 #define DIODE_DIRECTION COL2ROW
 

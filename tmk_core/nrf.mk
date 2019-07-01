@@ -85,6 +85,7 @@ ifeq ($(NRFSDK_VER), 12)
     $(NRFSDK_ROOT)/components/drivers_nrf/gpiote/nrf_drv_gpiote.c \
     $(NRFSDK_ROOT)/components/drivers_nrf/uart/nrf_drv_uart.c \
     $(NRFSDK_ROOT)/components/drivers_nrf/twi_master/nrf_drv_twi.c \
+    $(NRFSDK_ROOT)/components/drivers_nrf/twis_slave/nrf_drv_twis.c \
     $(NRFSDK_ROOT)/components/ble/common/ble_advdata.c \
     $(NRFSDK_ROOT)/components/ble/common/ble_conn_params.c \
     $(NRFSDK_ROOT)/components/ble/common/ble_conn_state.c \
@@ -117,6 +118,7 @@ ifeq ($(NRFSDK_VER), 12)
     $(TMK_PATH)/protocol/chibios/lufa_utils \
     $(NRFSDK_ROOT)/components/drivers_nrf/comp \
     $(NRFSDK_ROOT)/components/drivers_nrf/twi_master \
+    $(NRFSDK_ROOT)/components/drivers_nrf/twis_slave \
     $(NRFSDK_ROOT)/components/ble/ble_services/ble_ancs_c \
     $(NRFSDK_ROOT)/components/ble/ble_services/ble_ias_c \
     $(NRFSDK_ROOT)/components/libraries/pwm \
@@ -430,6 +432,7 @@ NRFLIBSRC += \
   $(NRFSDK_ROOT)/modules/nrfx/drivers/src/nrfx_uart.c \
   $(NRFSDK_ROOT)/modules/nrfx/drivers/src/nrfx_uarte.c \
   $(NRFSDK_ROOT)/modules/nrfx/drivers/src/nrfx_saadc.c \
+  $(NRFSDK_ROOT)/modules/nrfx/drivers/src/nrfx_spim.c \
   $(NRFSDK_ROOT)/modules/nrfx/drivers/src/nrfx_twi.c \
   $(NRFSDK_ROOT)/modules/nrfx/drivers/src/nrfx_twim.c \
   $(NRFSDK_ROOT)/modules/nrfx/drivers/src/nrfx_twis.c \
@@ -901,6 +904,14 @@ bin: $(BUILD_DIR)/$(TARGET).bin sizeafter
 	
 GREP ?= grep
 NRFUTIL ?= nrfutil
+
+$(TARGET).ble.zip: $(TARGET).bin
+	if ! type "nrfutil" > /dev/null 2>&1; then \
+		echo 'ERROR: nrfutil is not found'; exit 1;\
+	fi	
+	$(NRFUTIL) pkg generate --debug-mode --hw-version 0 --sd-req 0x8C --key-file $(PRIV_KEY) --application $(TARGET).bin $(TARGET).zip
+
+dfu_ble: $(TARGET).ble.zip
 
 $(TARGET).zip: $(TARGET).bin
 	if ! type "nrfutil" > /dev/null 2>&1; then \

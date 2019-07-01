@@ -1690,14 +1690,14 @@
 
 
 #ifndef NRFX_SPIM0_ENABLED
-#define NRFX_SPIM0_ENABLED 1
+#define NRFX_SPIM0_ENABLED 0
 #endif
 
 // <q> NRFX_SPIM1_ENABLED  - Enable SPIM1 instance
 
 
 #ifndef NRFX_SPIM1_ENABLED
-#define NRFX_SPIM1_ENABLED 1
+#define NRFX_SPIM1_ENABLED 0
 #endif
 
 // <q> NRFX_SPIM2_ENABLED  - Enable SPIM2 instance
@@ -1711,7 +1711,7 @@
 
 
 #ifndef NRFX_SPIM3_ENABLED
-#define NRFX_SPIM3_ENABLED 1
+#define NRFX_SPIM3_ENABLED 0
 #endif
 
 // <q> NRFX_SPIM_EXTENDED_ENABLED  - Enable extended SPIM features
@@ -2283,13 +2283,13 @@
 // <e> NRFX_TWIM_ENABLED - nrfx_twim - TWIM peripheral driver
 //==========================================================
 #ifndef NRFX_TWIM_ENABLED
-#define NRFX_TWIM_ENABLED 0
+#define NRFX_TWIM_ENABLED 1
 #endif
 // <q> NRFX_TWIM0_ENABLED  - Enable TWIM0 instance
 
 
 #ifndef NRFX_TWIM0_ENABLED
-#define NRFX_TWIM0_ENABLED 0
+#define NRFX_TWIM0_ENABLED 1
 #endif
 
 // <q> NRFX_TWIM1_ENABLED  - Enable TWIM1 instance
@@ -2345,7 +2345,7 @@
 // <4=> Debug
 
 #ifndef NRFX_TWIM_CONFIG_LOG_LEVEL
-#define NRFX_TWIM_CONFIG_LOG_LEVEL 3
+#define NRFX_TWIM_CONFIG_LOG_LEVEL 4
 #endif
 
 // <o> NRFX_TWIM_CONFIG_INFO_COLOR  - ANSI escape code prefix.
@@ -2387,7 +2387,7 @@
 // <e> NRFX_TWIS_ENABLED - nrfx_twis - TWIS peripheral driver
 //==========================================================
 #ifndef NRFX_TWIS_ENABLED
-#define NRFX_TWIS_ENABLED 0
+#define NRFX_TWIS_ENABLED 1
 #endif
 // <q> NRFX_TWIS0_ENABLED  - Enable TWIS0 instance
 
@@ -2400,7 +2400,7 @@
 
 
 #ifndef NRFX_TWIS1_ENABLED
-#define NRFX_TWIS1_ENABLED 0
+#define NRFX_TWIS1_ENABLED 1
 #endif
 
 // <q> NRFX_TWIS_ASSUME_INIT_AFTER_RESET_ONLY  - Assume that any instance would be initialized only once
@@ -2418,7 +2418,7 @@
 // <i> Synchronous mode would be used in specific situations. And it uses some additional code and data memory to safely process state machine by polling it in status functions. If this functionality is not required it may be disabled to free some resources.
 
 #ifndef NRFX_TWIS_NO_SYNC_MODE
-#define NRFX_TWIS_NO_SYNC_MODE 0
+#define NRFX_TWIS_NO_SYNC_MODE 1
 #endif
 
 // <o> NRFX_TWIS_DEFAULT_CONFIG_ADDR0 - Address0
@@ -2522,13 +2522,13 @@
 // <e> NRFX_TWI_ENABLED - nrfx_twi - TWI peripheral driver
 //==========================================================
 #ifndef NRFX_TWI_ENABLED
-#define NRFX_TWI_ENABLED 1
+#define NRFX_TWI_ENABLED 0
 #endif
 // <q> NRFX_TWI0_ENABLED  - Enable TWI0 instance
 
 
 #ifndef NRFX_TWI0_ENABLED
-#define NRFX_TWI0_ENABLED 1
+#define NRFX_TWI0_ENABLED 0
 #endif
 
 // <q> NRFX_TWI1_ENABLED  - Enable TWI1 instance
