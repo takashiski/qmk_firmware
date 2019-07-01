@@ -1,5 +1,6 @@
 
-DEFAULT_FOLDER = ergo42_ble/master
+DEFAULT_FOLDER = otaku_split_BLE/master
+
 
 NRF_DEBUG = no
 
