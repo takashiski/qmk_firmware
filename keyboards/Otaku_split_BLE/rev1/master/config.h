@@ -2,12 +2,13 @@
 #define MASTER_CONFIG_H_
 
 #include "custom_board.h"
+#include "../pin_assign.h"
 
-#define THIS_DEVICE_ROWS 4
-#define THIS_DEVICE_COLS 7
+#define THIS_DEVICE_ROWS 5
+#define THIS_DEVICE_COLS 8
 
-#define MATRIX_ROW_PINS { PIN9, PIN10, PIN11, PIN12 }
-#define MATRIX_COL_PINS { PIN19, PIN18, PIN17, PIN16, PIN15, PIN14, PIN13 }
+#define MATRIX_ROW_PINS { C6,D7,E6,B4,B5 }
+#define MATRIX_COL_PINS { F4,F5,F6,F7,B1,B3,B2,B6 }
 #define IS_LEFT_HAND  true
 
 #endif /* MASTER_CONFIG_H_ */
