@@ -1,5 +1,5 @@
 
-DEFAULT_FOLDER = otaku_split_BLE/master
+DEFAULT_FOLDER = otaku_split_BLE/rev1/master
 
 
 NRF_DEBUG = no
