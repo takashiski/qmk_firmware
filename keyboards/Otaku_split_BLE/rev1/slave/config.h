@@ -2,13 +2,15 @@
 #define KEYBOARDS_NRF52_SEPARATE_TEST_
 
 #include "custom_board.h"
-#include "../pin_assign.h"
+//#include "../pin_assign.h"
 
 #define THIS_DEVICE_ROWS 5
 #define THIS_DEVICE_COLS 8
 
-#define MATRIX_ROW_PINS { B5,B4,E6,D7,C6 }
-#define MATRIX_COL_PINS { B6,B2,B3,B1,F7,F6,F5,F4 }
+//#define MATRIX_ROW_PINS { B5,B4,E6,D7,C6 }
+#define MATRIX_ROW_PINS {PIN12, PIN11, PIN10, PIN9, PIN8 }
+//#define MATRIX_COL_PINS { B6,B2,B3,B1,F7,F6,F5,F4 }
+#define MATRIX_COL_PINS {PIN13, PIN14, PIN15, PIN16, PIN17, PIN18, PIN19, PIN20}
 
 #define IS_LEFT_HAND  false
 
