@@ -27,8 +27,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_Q,KC_W,KC_E,KC_R,
         KC_A,KC_S,KC_D,KC_F,
         KC_Z,KC_X,KC_C,KC_V,
-        LALT(KC_PSCR),KC_WH_R,KC_WH_L,
-        KC_MS_L
+        LALT(KC_PSCR),KC_WH_L,KC_WH_R,
+        KC_MS_BTN1
     )
 };
 
@@ -36,11 +36,10 @@ void encoder_update_user(uint8_t index,bool clockwise)
 {
     if(index==0)
     {
-        tap_code(ENC_CLWS);
-    }
-    else
-    {
-        tap_code(ENC_COWS);
+        if(clockwise)
+            tap_code(ENC_CLWS);
+        else
+            tap_code(ENC_COWS);
     }
 
 }
