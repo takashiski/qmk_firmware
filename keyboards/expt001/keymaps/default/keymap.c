@@ -17,9 +17,27 @@
 
 #define ENC_CLWS KC_WH_U
 #define ENC_COWS KC_WH_D
-
 // Defines the keycodes used by our macros in process_record_user
-enum custom_keycodes { QMKBEST = SAFE_RANGE, QMKURL };
+enum combo_event {
+    COMBO1,
+    COMBO2,
+    COMBO3,
+    COMBO4
+};
+
+const uint16_t PROGMEM combo_1[]={KC_1,KC_2,KC_3,KC_4,COMBO_END};
+const uint16_t PROGMEM combo_2[]={KC_Q,KC_W,KC_E,KC_R,COMBO_END};
+const uint16_t PROGMEM combo_3[]={KC_A,KC_S,KC_D,KC_F,COMBO_END};
+const uint16_t PROGMEM combo_4[]={KC_Z,KC_X,KC_C,KC_V,COMBO_END};
+
+combo_t key_combos[COMBO_COUNT]={
+    [COMBO1]=COMBO_ACTION(combo_1),
+    [COMBO2]=COMBO_ACTION(combo_2),
+    [COMBO3]=COMBO_ACTION(combo_3),
+    [COMBO4]=COMBO_ACTION(combo_4),
+};
+
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(/* Base */
@@ -45,10 +63,12 @@ void encoder_update_user(uint8_t index,bool clockwise)
 }
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+
     }
     return true;
 }
-#ifdef OLED_DRIVER_ENABLE
+//#ifdef OLED_DRIVER_ENABLE
+
 
 void oled_task_user(void)
 {
@@ -56,8 +76,39 @@ void oled_task_user(void)
 
 }
 
-#endif
+//#endif
 
+void process_combo_event(uint8_t combo_index, bool pressed)
+{
+    switch(combo_index)
+    {
+        case COMBO1:
+            if(pressed)
+            {
+                SEND_STRING("itsumoosewaninatteorimasu."SS_TAP(X_SPACE)SS_TAP(X_ENTER));
+            }
+
+            break;
+        case COMBO2:
+            if(pressed)
+            {
+                SEND_STRING("tenkoukoubounotenkoudesu."SS_TAP(X_SPACE)SS_TAP(X_ENTER));
+            }
+            break;
+        case COMBO3:
+            if(pressed)
+            {
+                SEND_STRING("ijou,gokakuninnnohodoyorosikuonegaiitasimasu."SS_TAP(X_SPACE)SS_TAP(X_ENTER));
+            }
+            break;
+        case COMBO4:
+            if(pressed)
+            {
+                SEND_STRING("tenkoukoubou"SS_TAP(X_SPACE)SS_TAP(X_ENTER)SS_TAP(X_ENTER)"tenkou"SS_TAP(X_SPACE)SS_TAP(X_ENTER));
+            }
+            break;
+    }
+}
 void matrix_init_user(void) {}
 
 void matrix_scan_user(void) {}
