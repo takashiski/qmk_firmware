@@ -1,0 +1,1 @@
+#define BOOTMAGIC_KEY_SALT KC_MHEN
