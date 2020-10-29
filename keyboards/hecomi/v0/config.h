@@ -27,8 +27,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT      v0
 
 /* key matrix size */
-#define MATRIX_ROWS 2
-#define MATRIX_COLS 3
+#define MATRIX_ROWS 10
+#define MATRIX_COLS 8
 
 /*
  * Keyboard Matrix Assignments
@@ -40,8 +40,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
  */
-#define MATRIX_ROW_PINS { D0, D5 }
-#define MATRIX_COL_PINS { F1, F0, B0 }
+#define MATRIX_ROW_PINS { C6,D7,E6,B4,B5 }
+#define MATRIX_ROW_PINS_RIGHT { C6,D7,E6,B4,B5 }
+#define MATRIX_COL_PINS { F4,F5,F6,F7,B1,B3,B2,B6 }
+#define MATRIX_COL_PINS_RIGHT { B6,B2,B3,B1,F7,F6,F5,F4 }
 #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL */
