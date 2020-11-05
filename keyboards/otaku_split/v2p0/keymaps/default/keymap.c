@@ -15,6 +15,8 @@
  */
 #include QMK_KEYBOARD_H
 
+#define BOOTMAGIC_KEY_EEHANDS_LEFT KC_Q
+#define BOOTMAGIC_KEY_EEHANDS_RIGHT KC_R
 
 enum layers{
 	BASE=0,
