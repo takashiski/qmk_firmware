@@ -20,6 +20,6 @@ NKRO_ENABLE = no            # USB Nkey Rollover
 BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
 RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
 BLUETOOTH_ENABLE = no       # Enable Bluetooth
-AUDIO_ENABLE = yes           # Audio output
+#AUDIO_ENABLE = yes           # Audio output
 #AUDIO_ENABLE = no           # Audio output
 SPLIT_KEYBOARD = yes

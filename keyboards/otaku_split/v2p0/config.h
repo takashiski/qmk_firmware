@@ -54,6 +54,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #define SOFT_SERIAL_PIN D0  // or D1, D2, D3, E6
 #define EE_HANDS
+
+#define BOOTMAGIC_KEY_EEHANDS_LEFT KC_Q
+#define BOOTMAGIC_KEY_EEHANDS_RIGHT KC_R
 //#define BACKLIGHT_PIN B7
 //#define BACKLIGHT_LEVELS 3
 //#define BACKLIGHT_BREATHING
