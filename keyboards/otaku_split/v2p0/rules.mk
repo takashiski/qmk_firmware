@@ -8,7 +8,7 @@ MCU = atmega32u4
 #   change yes to no to disable
 #
 #BOOTMAGIC_ENABLE = lite     # Virtual DIP switch configuration
-BOOTMAGIC_ENABLE = full
+# BOOTMAGIC_ENABLE = full
 MOUSEKEY_ENABLE = yes       # Mouse keys
 EXTRAKEY_ENABLE = yes       # Audio control and System control
 CONSOLE_ENABLE = no         # Console for debug
