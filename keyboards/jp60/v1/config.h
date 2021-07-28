@@ -21,10 +21,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* USB Device descriptor parameter */
 #define VENDOR_ID    0xDEAD
-#define PRODUCT_ID   0xBEEE
+#define PRODUCT_ID   0xBEAF
 #define DEVICE_VER   0x0001
 #define MANUFACTURER takashiski
-#define PRODUCT      jp60/v1
+#define PRODUCT      JP60
 
 /* key matrix size */
 #define MATRIX_ROWS 5
