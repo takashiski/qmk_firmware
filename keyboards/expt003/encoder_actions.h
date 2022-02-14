@@ -1,8 +1,8 @@
-/* Copyright 2021 takashiski
+/* Copyright 2020 Neil Brian Ramirez
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
+ * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -14,21 +14,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "expt003.h"
+#include "quantum.h"
 
-// #define VIA_ENABLE
-// #define ENCODER_ENABLE
+void encoder_action_unregister(void);
 
-#if !defined(VIA_ENABLE) && defined(ENCODER_ENABLE)
-bool encoder_update_kb(uint8_t index, bool clockwise) {
-    if (!encoder_update_user(index, clockwise)) {
-        return false;
-    }
-    if (clockwise) {
-        tap_code(KC_MS_WH_UP);
-    } else {
-        tap_code(KC_MS_WH_DOWN);
-    }
-    return true;
-}
-#endif
+void encoder_action_register(uint8_t index, bool clockwise);

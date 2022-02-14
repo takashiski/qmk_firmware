@@ -20,15 +20,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID    0xFEED
-#define PRODUCT_ID   0x0000
+#define VENDOR_ID    0xDEAD
+#define PRODUCT_ID   0xEE03
 #define DEVICE_VER   0x0001
 #define MANUFACTURER takashiski
 #define PRODUCT      expt003
 
 /* key matrix size */
-#define MATRIX_ROWS 2
-#define MATRIX_COLS 3
+#define MATRIX_ROWS 4
+#define MATRIX_COLS 4
 
 /*
  * Keyboard Matrix Assignments
@@ -40,12 +40,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
  */
-#define MATRIX_ROW_PINS { D0, D5 }
-#define MATRIX_COL_PINS { F1, F0, B0 }
+#define MATRIX_ROW_PINS { F5,F6,F7,D7 }
+#define MATRIX_COL_PINS { B1,B3,B2,B6 }
 #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL */
 #define DIODE_DIRECTION COL2ROW
+
+#define ENCODERS_PAD_A {E6}
+#define ENCODERS_PAD_B {B4}
+
+#define ENCODERS 1
+
+#define ENCODERS_CW_KEY { {3,3} }//col row
+#define ENCODERS_CCW_KEY { {2,3} }//col row
 
 /*
  * Split Keyboard specific options, make sure you have 'SPLIT_KEYBOARD = yes' in your rules.mk, and define SOFT_SERIAL_PIN.

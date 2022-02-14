@@ -17,6 +17,7 @@
 #pragma once
 
 #include "quantum.h"
+#include "encoder_actions.h"
 
 /* This is a shortcut to help you visually see your layout.
  *
@@ -27,9 +28,13 @@
  * represents the switch matrix.
  */
 #define LAYOUT( \
-    k00, k01, k02, \
-      k10,  k12    \
+    k00, k01, k02, k03,\
+    k10, k11, k12, k13,\
+    k20, k21, k22, k23,\
+    k30, k32, k33\
 ) { \
-    { k00, k01,   k02 }, \
-    { k10, KC_NO, k12 }  \
+    { k00, k01, k02, k03 }, \
+    { k10, k11, k12, k13 }, \
+    { k20, k21, k22, k23 }, \
+    { k30, KC_NO, k32, k33 } \
 }
