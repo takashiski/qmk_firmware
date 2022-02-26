@@ -69,28 +69,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //     }
 // };
 
-
+#define SEND_STRING_EMOJI(str) SEND_STRING(SS_TAP(X_LANG2) str SS_TAP(X_LANG1));
 bool process_record_user(uint16_t keycode, keyrecord_t *record){
     switch(keycode){
         case KC_FN0:
             if(record->event.pressed)
-                SEND_STRING(":_pon:");
+                SEND_STRING_EMOJI(":_pon:");
             break;
         case KC_FN1:
             if(record->event.pressed)
-                SEND_STRING(":_penlight:");
+                SEND_STRING_EMOJI(":_penlight:");
             break;
         case KC_FN2:
             if(record->event.pressed)
-                SEND_STRING(":_detawane:");
+                SEND_STRING_EMOJI(":_detawane:");
             break;
         case KC_FN3:
             if(record->event.pressed)
-                SEND_STRING(":_siro:");
+                SEND_STRING_EMOJI(":_siro:");
             break;
         case KC_FN4:
             if(record->event.pressed)
-                SEND_STRING(":tangerine:");
+                SEND_STRING_EMOJI(":tangerine:");
             break;
     }
     return true;
